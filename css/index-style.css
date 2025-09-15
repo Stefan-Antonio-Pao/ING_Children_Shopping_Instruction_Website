@@ -1,0 +1,142 @@
+/* css/index-style.css */
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+    background: #fff8af;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    height: 1300px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.directory {
+    width: 90%;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 24px;
+    font-size: 1.18em;
+    box-sizing: border-box;
+}
+
+/* css */
+.tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+/* each tab fills equally */
+.tab {
+    flex: 1;
+    display: block;       /* make the whole area clickable */
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 12px 0;      /* vertical padding; horizontal handled by flex */
+    cursor: pointer;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: background-color 0.18s, color 0.18s, border-bottom-color 0.18s;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* hover shows blue underline */
+.tab:hover {
+    border-bottom-color: #2d8cf0;
+    border-radius: 0;
+}
+
+/* active: blue background and white text */
+.tab.active {
+    background: #2d8cf0;
+    color: #fff;
+    border-bottom-color: transparent; /* remove underline when active if preferred */
+    font-weight: 600;
+}
+.tab.active:hover {
+    border-radius: 8px;
+}
+
+/* keyboard focus visible */
+.tab:focus {
+    box-shadow: inset 0 -3px 0 rgba(45,140,240,0.18);
+}
+
+.tab-content {
+    display: block;
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+/* Single, authoritative .items-grid (grid layout) */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(24px, 4vw, 40px);
+    padding: 12px 12px;
+    box-sizing: border-box;
+    justify-items: center; /* center each .item in its grid cell */
+}
+
+/* Item styles (only one definition) */
+.item {
+    width: 190px; /* fixed card width; centered by justify-items */
+    background: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.item p {
+    margin: 8px 0 4px 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.item a {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 16px;
+    background: #2d8cf0;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 18px;
+}
