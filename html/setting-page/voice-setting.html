@@ -5,9 +5,12 @@
     <title>智能语音设置</title>
     <link rel="stylesheet" href="../../css/general/user-interface.css">
     <link rel="stylesheet" href="../../css/setting-page/voice-setting.css">
-    <script src="../../js/general/user-interface.js"></script>
+    <link rel="stylesheet" href="../../css/general/user-interface.css">
+    <script src="../../js/general/page-cleaner.js"></script>
+    <script src="../../js/general/sidebar-data.js"></script>
     <script src="../../js/setting-page/voice-core.js"></script>
-    <script src="../../js/setting-page/voice-setting.js" defer></script>
+    <script src="../../js/general/sidebar-interface.js"></script>
+    <script src="../../js/setting-page/voice-setting.js"></script>
     <script src="../../js/general/page-reader.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -25,29 +28,10 @@
     </script>
 </head>
 <body>
-<p style="display: none" id="page-reader-text">智能语音设置。你可以通过菜单来选择不同的语音，通过调整下方的滑块调整语速和音调，点击自动朗读按钮来决定是否自动朗读，点击朗读文字来调试你设置的语音效果。如果效果不满意，可以点击重置按钮还原设置。</p>
+<p style="display: none" id="page-reader-text">欢迎来到智能语音设置！你可以通过菜单来选择不同的语音，通过调整下方的滑块调整语速和音调，点击自动朗读按钮来决定是否自动朗读，点击朗读文字来调试你设置的语音效果。如果效果不满意，可以点击重置按钮还原设置。</p>
 <!--Catalog Sidebar-->
 <div class="sidebar">
     <ul>
-        <li>
-            <a class="main-category" href="../../index.html">欢迎页面</a>
-        </li>
-        <li>
-            <a class="main-category" onclick="toggleSubCategories(this)">网站设置<span class="toggle-btn">▶</span></a>
-            <ul class="sub-category">
-                <li><a href="#" style="background-color: #ddd">智能语音设置</a></li>
-                <li><a href="#">导览角色设置</a></li>
-            </ul>
-        </li>
-        <li>
-            <a class="main-category" onclick="toggleSubCategories(this)">模块选择<span class="toggle-btn">▶</span></a>
-            <ul class="sub-category">
-                <li><a href="#">人名币教学</a></li>
-                <li><a href="#">线上支付教学</a></li>
-                <li><a href="#">练习环节</a></li>
-                <li><a href="#">应用环节</a></li>
-            </ul>
-        </li>
     </ul>
 </div>
 
@@ -57,8 +41,8 @@
         <!--Interaction Widget-->
         <div class="floating-controls">
             <button id="play-page-btn" title="朗读本页">读</button>
-            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="../../index.html">←</a>
-            <a id="next-page-btn" class="nav-button" title="下一页" data-href="#">→</a>
+            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="../../index.html"><</a>
+            <a id="next-page-btn" class="nav-button" title="下一页" data-href="director-setting.html">></a>
         </div>
 
         <h1>智能语音设置</h1>
@@ -72,12 +56,12 @@
             </div>
             <div class="control-panel">
                 <label for="rate">语速：</label>
-                <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1" onchange="updateSpeechRate()">
+                <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1">
                 <span id="rate-value">1</span>
             </div>
             <div class="control-panel">
                 <label for="pitch">音调：</label>
-                <input type="range" id="pitch" min="0.5" max="2" value="1" step="0.1" onchange="updateSpeechPitch()">
+                <input type="range" id="pitch" min="0.5" max="2" value="1" step="0.1">
                 <span id="pitch-value">1</span>
             </div>
             <button id="ai-voice-btn">自动朗读：开启</button>
@@ -87,6 +71,9 @@
             <h2>测试区域</h2>
             <p>这是新语音的播放效果，如果对该语音效果不满意，你可以在上方继续调整。</p>
             <button>播放测试语句</button>
+        </div>
+        <div style="margin-top: 30px;">
+            <a class="a-button" href="director-setting.html">下一步</a>
         </div>
     </div>
 </div>

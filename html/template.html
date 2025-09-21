@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块目录</title>
+    <link rel="stylesheet" href="css/general/user-interface.css">
+    <script src="js/general/sidebar-data.js" ></script>
+    <script src="js/setting-page/voice-core.js"></script>
+    <script src="js/general/sidebar-interface.js"></script>
+    <script src="js/general/page-reader.js" defer></script>
+</head>
+<body>
+<p style="display: none" id="page-reader-text"></p>
+<!--Catalog Sidebar-->
+<div class="sidebar">
+    <ul>
+    </ul>
+</div>
+
+<!--Main Content-->
+<div class="main-content-wrapper">
+    <div class="container">
+        <!--Interaction Widget-->
+        <div class="floating-controls">
+            <button id="play-page-btn" title="朗读本页">读</button>
+            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="#"><</a>
+            <a id="next-page-btn" class="nav-button" title="下一页" data-href="#">></a>
+        </div>
+
+        <h1>欢迎来到儿童购物游戏教学网站</h1>
+        <p>亲爱的小朋友，我们将一起学习如何购物！</p>
+        <p>你将会学习认识人民币、学会支付、挑选商品，最后成功购物！</p>
+        <a class="a-button" href="#">开始学习</a>
+    </div>
+</div>
+</body>
+</html>

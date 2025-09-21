@@ -1,6 +1,6 @@
 /* Section Setting */
 body {
-    font-family: "Arial Rounded MT Bold", "Microsoft YaHei", sans-serif;
+    font-family: "Arial Rounded MT Bold", "Microsoft YaHei", sans-serif !important;
     background: #fff8af;
     margin: 0;
     padding: 0;
@@ -44,7 +44,8 @@ body {
     max-width: 1200px;
 
     height: auto;
-    min-height: 100%;
+    /*height: calc(100vh - (2 * var(--vertical-margin)));*/
+    min-height: calc(100vh - (2 * var(--vertical-margin)));;
 
     margin: 0 auto;
     background-color: #fff;
@@ -166,8 +167,9 @@ img {
 }
 
 .sidebar a {
-    display: block;
-    padding: 10px;
+    display: flex; /* Use flexbox for vertical alignment */
+    align-items: center; /* Center items vertically */
+    padding: 8px 10px;
     color: #333;
     text-decoration: none;
     border-radius: 5px;
@@ -183,18 +185,39 @@ img {
     cursor: pointer;
 }
 
-.sidebar .sub-category {
-    padding-left: 20px;
-    display: none;
-}
-
 .sidebar .sub-category li {
     margin: 5px 0;
 }
 
 .sidebar .toggle-btn {
     margin-right: 5px;
+    width: 15px; /* Fixed width to prevent text shifting */
+    text-align: center;
 }
+.sidebar .sub-category {
+    /* Default spacing for the first level */
+    padding-left: 15px;
+    display: none; /* Hidden by default */
+    list-style: none;
+    margin: 0;
+}
+
+/* Multi-level Indentation: Apply additional padding to nested sub-categories (Level 3+) */
+/* This targets a UL within a UL */
+.sidebar .sub-category .sub-category {
+    padding-left: 15px; /* Cumulative indentation for deeper levels */
+}
+
+/* Sub-category Links (Use normal font weight) */
+.sidebar .sub-category a {
+    font-weight: normal;
+}
+
+/* Ensure collapsible anchors in sub-levels still use bold font */
+.sidebar .sub-category .toggle-category {
+    font-weight: bold;
+}
+
 
 
 /* Interaction Widgets (Desktop Positioning) */
@@ -260,9 +283,12 @@ img {
     transform: translateY(0);
 }
 /* ---------------------------------------------------- */
-/* --- Responsive Design / Mobile Fixes (Max 768px) --- */
+/* --- Responsive Design / Mobile Fixes (Max 870px, prev. 768px) --- */
 /* ---------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 870px) {
+    body{
+        overflow-x: hidden;
+    }
     /* 1. Hide Sidebar for Mobile (Best practice) */
     .sidebar {
         display: none;
@@ -276,12 +302,16 @@ img {
         padding-left: 10px;
         padding-right: 10px;
         /* Ensure it remains the correct fixed height */
-        height: calc(100vh - (2 * var(--vertical-margin)));
+        /*height: calc(100vh - (2 * var(--vertical-margin)));*/
+        height: auto;
     }
 
     /* 3. Container takes full available width */
     .container {
         /* Simplified width calculation for mobile, using full viewport width minus standard padding */
+        /*height: calc(100vh - (2 * var(--vertical-margin)));*/
+        height: auto;
+        min-height: calc(100vh - (2 * var(--vertical-margin))); /* Prevent overflow issues */
         width: 100%;
         max-width: 768px; /* Optional max width */
         padding: 20px 10px; /* Reduced padding for mobile */

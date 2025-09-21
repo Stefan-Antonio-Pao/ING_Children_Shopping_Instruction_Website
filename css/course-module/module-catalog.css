@@ -1,0 +1,181 @@
+/* --- General View State Management --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Course Card Catalog View --- */
+#course-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.course-card {
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px #00000019;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Title/Desc on left, Image/Action on right */
+    grid-template-rows: auto 1fr auto; /* Title, Description+Image, Action */
+    gap: 10px 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    grid-column: 1 / 3; /* Title spans both columns */
+    font-size: 1.8rem;
+    color: #4d96ff;
+    margin-bottom: 5px;
+}
+
+.card-description {
+    grid-column: 2 / 3; /* Description is on the left column */
+    grid-row: 2 / 4;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 0;
+    padding-left: 20px;
+    align-self: start; /* Align to the top of its row */
+}
+
+.card-image {
+    grid-column: 1 / 2; /* Image is on the right column */
+    grid-row: 2 / 4; /* Image spans two rows (desc and action) */
+    width: 100px;
+    height: 100px;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    justify-self: start;
+}
+
+.card-action {
+    grid-column: 2 / 3; /* Action button is on the left column, bottom row */
+    grid-row: 3 / 4;
+    font-size: 1rem;
+    color: #4d96ff;
+    text-align: right;
+    font-weight: bold;
+    align-self: end; /* Align to the bottom of its row */
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* --- Difficulty Selection View --- */
+#difficulty-selection {
+    text-align: center;
+    position: relative;
+}
+
+.difficulty-header-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#difficulty-course-title {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-button {
+    /* Use same style as .a-button but without a full shadow/lift to look less primary */
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-left: 0;
+    box-shadow: none;
+    background-color: #e0e0e0;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.difficulty-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Circle shape */
+    border: 3px solid #ccc;
+    background-color: #eee;
+    color: #888;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for selected difficulty button */
+.difficulty-btn.selected {
+    transform: scale(1.1);
+    border-width: 5px;
+    color: white; /* Text color for selected buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Color presets for selected states */
+.difficulty-btn[data-level="1"].selected {
+    background-color: #5cb85c; /* Green */
+    border-color: #4cae4c;
+}
+
+.difficulty-btn[data-level="2"].selected {
+    background-color: #f0c24e; /* Yellow/Orange */
+    border-color: #eeae36;
+    color: #333; /* Darker text for visibility on yellow */
+}
+
+.difficulty-btn[data-level="3"].selected {
+    background-color: #ff8c00; /* Orange */
+    border-color: #e67e22;
+}
+
+.difficulty-btn[data-level="4"].selected {
+    background-color: #d9534f; /* Red */
+    border-color: #c9302c;
+}
+
+/* Description area */
+.description {
+    min-height: 50px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.select-button {
+    margin-top: 30px;
+}
+
+.select-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}

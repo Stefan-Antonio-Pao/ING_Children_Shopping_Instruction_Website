@@ -176,6 +176,7 @@
         populateVoiceSelect,
         setSetting,
         getSetting,
+        ensureDefaults,
         // also expose a helper to wait for voice population
         waitForVoices,
     };

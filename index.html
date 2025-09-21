@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>儿童购物游戏教学网站</title>
     <link rel="stylesheet" href="css/general/user-interface.css">
-    <script src="js/general/user-interface.js" defer></script>
+    <script src="js/general/page-cleaner.js"></script>
+    <script src="js/general/sidebar-data.js" ></script>
     <script src="js/setting-page/voice-core.js"></script>
+    <script src="js/general/sidebar-interface.js"></script>
     <script src="js/general/page-reader.js" defer></script>
 </head>
 <body>
@@ -13,25 +15,6 @@
 <!--Catalog Sidebar-->
 <div class="sidebar">
     <ul>
-        <li>
-            <a class="main-category" href="#" style="background-color: #ddd">欢迎页面</a>
-        </li>
-        <li>
-            <a class="main-category" onclick="toggleSubCategories(this)">网站设置<span class="toggle-btn">▶</span></a>
-            <ul class="sub-category">
-                <li><a href="html/setting-page/voice-setting.html">智能语音设置</a></li>
-                <li><a href="#">导览角色设置</a></li>
-            </ul>
-        </li>
-        <li>
-            <a class="main-category" onclick="toggleSubCategories(this)">模块选择<span class="toggle-btn">▶</span></a>
-            <ul class="sub-category">
-                <li><a href="#">人名币教学</a></li>
-                <li><a href="#">线上支付教学</a></li>
-                <li><a href="#">练习环节</a></li>
-                <li><a href="#">应用环节</a></li>
-            </ul>
-        </li>
     </ul>
 </div>
 
@@ -40,18 +23,19 @@
     <div class="container">
         <!--Interaction Widget-->
         <div class="floating-controls">
-            <button id="play-page-btn" title="朗读本页">读</button>
-            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="#" style="display: none">←</a>
-            <a id="next-page-btn" class="nav-button" title="下一页" data-href="html/setting-page/voice-setting.html">→</a>
+            <button id="play-page-btn" title="朗读本页" style="display: none">读</button>
+            <button id="clear-data-btn" title="清除所有本地数据">↻</button>
+            <a id="next-page-btn" class="nav-button" title="下一页" data-href="html/setting-page/voice-setting.html">></a>
         </div>
 
-        <h1 data-speech="欢迎来到儿童购物游戏教学网站">欢迎来到儿童购物游戏教学网站</h1>
+        <h1>欢迎来到儿童购物游戏教学网站</h1>
         <div class="image-container">
-            <img src="img/sundry/welcome-image.png" alt="欢迎图片">
+            <img src="assets/sundry/welcome-image.png" alt="欢迎图片">
         </div>
-        <p data-speech="亲爱的小朋友，我们将一起学习如何购物！">亲爱的小朋友，我们将一起学习如何购物！</p>
-        <p data-speech="你将会学习认识人民币、学会支付、挑选商品，最后成功购物！">你将会学习认识人民币、学会支付、挑选商品，最后成功购物！</p>
-        <a class="a-button" href="html/setting-page/voice-setting.html">下一步</a>
+        <p>亲爱的小朋友，我们将一起学习如何购物！</p>
+        <p>你将会学习认识人民币、学会支付、挑选商品，最后成功购物！</p>
+        <a class="a-button" href="html/setting-page/voice-setting.html">开始学习</a>
+        <address style="margin-top: 100px">点击左上角的↻重置按钮以还原所有设置</address>
     </div>
 </div>
 </body>

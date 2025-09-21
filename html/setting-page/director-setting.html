@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>导览角色设置</title>
+    <link rel="stylesheet" href="../../css/general/user-interface.css">
+    <link rel="stylesheet" href="../../css/setting-page/director-setting.css">
+    <script src="../../js/general/page-cleaner.js"></script>
+    <script src="../../js/general/sidebar-data.js" ></script>
+    <script src="../../js/setting-page/voice-core.js"></script>
+    <script src="../../js/general/sidebar-interface.js"></script>
+    <script src="../../js/setting-page/director-core.js"></script>
+    <script src="../../js/setting-page/director-setting.js"></script>
+    <script src="../../js/general/page-reader.js" defer></script>
 </head>
 <body>
+<p style="display: none" id="page-reader-text">欢迎来到导览角色设置!亲爱的小朋友，快来选一位可爱的小伙伴和你一起学习购物吧！</p>
+<!--Catalog Sidebar-->
+<div class="sidebar">
+    <ul>
+    </ul>
+</div>
 
+<!--Main Content-->
+<div class="main-content-wrapper">
+    <div class="container">
+        <!--Interaction Widget-->
+        <div class="floating-controls">
+            <button id="play-page-btn" title="朗读本页">读</button>
+            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="voice-setting.html"><</a>
+            <a id="next-page-btn" class="nav-button" title="下一页" data-href="../course-module/module-catalog.html">></a>
+        </div>
+
+        <h1>导览角色设置</h1>
+
+        <p>亲爱的小朋友，快来选择一位小伙伴和你一起学习购物吧！</p>
+        <div class="director-selection-container">
+            <div id="director-avatars" class="director-avatars"></div>
+
+            <div id="director-display-area" class="director-display-area">
+                <p class="placeholder">请选择你的导览小伙伴！</p>
+            </div>
+        </div>
+
+        <a id="next-step-btn" class="a-button" href="../course-module/module-catalog.html">下一步</a>
+    </div>
+</div>
 </body>
 </html>

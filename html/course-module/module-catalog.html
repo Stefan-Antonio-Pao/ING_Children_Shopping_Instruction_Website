@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块目录</title>
+    <link rel="stylesheet" href="../../css/general/user-interface.css">
+    <link rel="stylesheet" href="../../css/course-module/module-catalog.css">
+
+    <script src="../../js/general/sidebar-data.js" ></script>
+    <script src="../../js/setting-page/voice-core.js"></script>
+    <script src="../../js/general/sidebar-interface.js"></script>
+    <script src="../../js/general/page-reader.js" defer></script>
+    <script src="../../js/course-module/module-catalog.js" defer></script>
+</head>
+<body>
+<p style="display: none" id="page-reader-text">欢迎来到课程模块目录！你可以在这里选择想要学习的课程模块与对应的难度以开始学习。</p>
+
+<div class="sidebar">
+    <ul>
+    </ul>
+</div>
+
+<div class="main-content-wrapper">
+    <div class="container">
+
+        <div class="floating-controls">
+            <button id="play-page-btn" title="朗读本页">读</button>
+            <a id="prev-page-btn" class="nav-button" title="上一页" data-href="../setting-page/director-setting.html"><</a>
+        </div>
+
+        <div id="module-catalog" class="catalog-view">
+            <h1>课程模块目录</h1>
+            <p>你可以在这里选择想要学习的课程模块与对应的难度以开始学习！</p>
+            <div id="course-cards-container">
+            </div>
+        </div>
+
+        <div id="difficulty-selection" class="selection-view hidden">
+            <div class="difficulty-header-controls">
+                <button id="back-to-catalog-btn" class="a-button back-button">← 课程列表</button>
+            </div>
+            <h1>课程模块目录</h1>
+
+            <h2 id="difficulty-course-title"></h2>
+
+            <div class="difficulty-buttons">
+            </div>
+
+            <p id="difficulty-description" class="description"></p>
+
+            <button id="select-difficulty-btn" class="a-button select-button" disabled>选择此难度</button>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

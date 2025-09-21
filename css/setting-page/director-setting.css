@@ -1,0 +1,107 @@
+.floating-controls,
+.floating-controls button,
+.floating-controls a {
+    font-family: "Arial Rounded MT Bold", "Microsoft YaHei", sans-serif !important;
+}
+
+/* Container for the selection process */
+.director-selection-container {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Row of avatars */
+.director-avatars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow avatars to wrap on smaller screens */
+    margin-bottom: 30px;
+}
+
+.director-avatar {
+    cursor: pointer;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.director-avatar img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    display: block;
+    transform: scale(1.01);
+}
+
+.director-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Style for the selected avatar */
+.director-avatar.selected {
+    border-color: #4d96ff; /* Highlight color from user-interface.css */
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(77, 150, 255, 0.5);
+}
+
+/* Display Area */
+.director-display-area {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Common video aspect ratio */
+    max-width: 800px; /* Limit max width on large screens */
+    margin: 0 auto 30px; /* Center it and add space below */
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide anything that spills out */
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.director-display-area .placeholder {
+    font-size: 1.8rem;
+    color: #888;
+    padding: 20px;
+    text-align: center;
+}
+
+.director-display-area video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Next Button Styling */
+#next-step-btn {
+    display: none; /* Hidden by default */
+}
+
+#next-step-btn.visible {
+    display: inline-block; /* Show the button when a character is selected */
+}
+
+
+/* --- Responsive Design for Mobile (Max 768px) --- */
+@media (max-width: 768px) {
+    .director-avatars {
+        gap: 15px;
+    }
+
+    .director-avatar {
+        width: 80px;
+        height: 80px;
+        border-width: 4px;
+    }
+
+    .director-display-area .placeholder {
+        font-size: 1.4rem;
+    }
+}
