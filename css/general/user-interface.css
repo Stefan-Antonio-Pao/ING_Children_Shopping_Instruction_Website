@@ -1,0 +1,306 @@
+/* Section Setting */
+body {
+    font-family: "Arial Rounded MT Bold", "Microsoft YaHei", sans-serif;
+    background: #fff8af;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Define fixed width and margins using variables */
+:root {
+    --sidebar-width: 150px;
+    --vertical-margin: 20px;
+    --horizontal-buffer: 140px;
+}
+
+.main-content-wrapper {
+    /* Desktop: Fixed viewport height minus margins, enabling internal scrolling */
+    height: calc(100vh - (2 * var(--vertical-margin)));
+    margin-top: var(--vertical-margin);
+    margin-bottom: var(--vertical-margin);
+
+    /* Desktop: Pushed right by the sidebar width */
+    flex: 1;
+    padding-left: calc(var(--sidebar-width) + 10px);
+    padding-right: 10px;
+    padding-top: 0;
+    width: 100%;
+
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.container {
+    /* Set positioning context for floating controls */
+    position: relative;
+
+    /* Desktop: Responsive width based on viewport minus sidebar and margins */
+    width: calc(100vw - var(--sidebar-width) - 40px - var(--horizontal-buffer));
+    max-width: 1200px;
+
+    height: auto;
+    min-height: 100%;
+
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 24px #00000019;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Text Effect */
+h1 {
+    color: #000;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #00000019;
+}
+
+h2 {
+    color: #4d96ff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.a-button {
+    background-color: #4d96ff;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 10px;
+    line-height: 40px; /* IMPORTANT: Center text vertically in <a> tag */
+    text-decoration: none; /* IMPORTANT: Remove underline from <a> tag */
+    text-align: center; /* Center text horizontally in <a> tag */
+    box-shadow: 0 4px 8px #00000033;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.a-button:hover {
+    box-shadow: 0 6px 12px #00000026;
+    background-color: #387ad6;
+    transform: translateY(-2px);
+}
+
+/* Image Setting */
+.image-container {
+    margin: 20px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+
+img {
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Catalog Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    min-width: 180px;
+    background-color: #fff;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 1000;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    transition: left 0.3s ease; /* Added for smoother transition when hidden */
+}
+
+/* Catalog Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* Adapts to window height: keeps 100vh */
+    height: 100vh;
+    /* Use variable for defined width */
+    width: var(--sidebar-width);
+    min-width: 180px;
+    background-color: #fff;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 1000;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box; /* Ensure padding does not increase the total width */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar .main-category {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebar .sub-category {
+    padding-left: 20px;
+    display: none;
+}
+
+.sidebar .sub-category li {
+    margin: 5px 0;
+}
+
+.sidebar .toggle-btn {
+    margin-right: 5px;
+}
+
+
+/* Interaction Widgets (Desktop Positioning) */
+.floating-controls {
+    /* Absolute position relative to .container */
+    position: absolute;
+    top: 30px;
+    /* Desktop: Pushes controls OUTSIDE container, next to sidebar */
+    left: -50px;
+    z-index: 1001;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.floating-controls {
+    background-color: #4d96ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* ... (Existing styles above) ... */
+
+/* Interaction Widgets (Applies to both button and <a> tag) */
+.floating-controls button,
+.floating-controls .nav-button { /* Added .nav-button selector */
+    /* Style consistency */
+    background-color: #4d96ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 40px; /* IMPORTANT: Center text vertically in <a> tag */
+    text-decoration: none; /* IMPORTANT: Remove underline from <a> tag */
+    text-align: center; /* Center text horizontally in <a> tag */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+
+    /* Ensure <a> behaves like a block element */
+    display: inline-block;
+}
+
+.floating-controls button:hover,
+.floating-controls .nav-button:hover { /* Updated selector */
+    background-color: #387ad6;
+    transform: translateY(-2px);
+}
+
+.floating-controls button:active,
+.floating-controls .nav-button:active { /* Updated selector */
+    transform: translateY(0);
+}
+/* ---------------------------------------------------- */
+/* --- Responsive Design / Mobile Fixes (Max 768px) --- */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. Hide Sidebar for Mobile (Best practice) */
+    .sidebar {
+        display: none;
+        /* Pushes sidebar off-screen */
+        left: calc(-1 * var(--sidebar-width));
+    }
+
+    /* 2. Main Content Wrapper takes full width */
+    .main-content-wrapper {
+        /* Remove the large left padding */
+        padding-left: 10px;
+        padding-right: 10px;
+        /* Ensure it remains the correct fixed height */
+        height: calc(100vh - (2 * var(--vertical-margin)));
+    }
+
+    /* 3. Container takes full available width */
+    .container {
+        /* Simplified width calculation for mobile, using full viewport width minus standard padding */
+        width: 100%;
+        max-width: 768px; /* Optional max width */
+        padding: 20px 10px; /* Reduced padding for mobile */
+    }
+
+    /* 4. Critical Fix: Move controls INSIDE the container */
+    .floating-controls {
+        /* Override absolute positioning */
+        left: 10px; /* Aligns controls with the container's internal padding */
+        top: 10px; /* Positions controls near the top-left */
+
+        /* Optional: Change layout to horizontal to save vertical space on mobile */
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .floating-controls button,
+    .floating-controls .nav-button {
+        min-width: 40px;
+        min-height: 40px;
+    }
+}

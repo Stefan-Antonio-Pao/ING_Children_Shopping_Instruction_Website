@@ -344,7 +344,7 @@
             border: 1px solid #ccc; 
             border-radius: 50%; 
             cursor: pointer; 
-            background-color: #f0f0f0; 
+            background-color: #f0f0f0;
             transition: background-color 0.3s ease; 
             display: flex; 
             justify-content: center; 
@@ -1844,7 +1844,6 @@
         cashPaymentTotal.textContent = `你选择的商品总价是 ${totalPrice} 元。`;
     }
 
-    
          function removeFromCart(itemName, price, event) {
             event.stopPropagation(); // 阻止事件冒泡
             const existingItem = cart.find(item => item.name === itemName);
